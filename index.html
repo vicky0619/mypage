@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | AI Developer</title>
+    <meta name="description" content="Professional portfolio showcasing my projects and skills with AI integration">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .pixel-font {
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        
+        .skill-item:hover .skill-progress {
+            width: 100%;
+        }
+        
+        .skill-progress {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .chat-bubble:first-child {
+            border-top-left-radius: 1.5rem;
+        }
+        
+        .chat-bubble:last-child {
+            border-bottom-right-radius: 1.5rem;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+        
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+        
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="pixel-font text-xl font-bold text-blue-500">PORTFOLIO</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-500 transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-500 transition duration-300">About</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-500 transition duration-300">Projects</a>
+                    <a href="#chatbot" class="text-gray-700 hover:text-blue-500 transition duration-300">AI Chatbot</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-500 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">About</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Projects</a>
+                <a href="#chatbot" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">AI Chatbot</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-white to-blue-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 pixel-font text-gray-900">Hi, I'm <span class="text-blue-500">Developer</span></h1>
+                    <h2 class="text-xl md:text-2xl mb-6 text-gray-700">Full Stack Developer & AI Enthusiast</h2>
+                    <p class="text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        I build beautiful, functional digital experiences with a focus on user interaction and AI integration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300">View My Work</a>
+                        <a href="#contact" class="px-6 py-3 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-50 transition duration-300">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in delay-100">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="https://source.unsplash.com/random/800x800/?portrait" alt="Profile" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="pixel-font text-3xl md:text-4xl font-bold mb-4 text-gray-900">About Me</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Passionate developer with expertise in creating modern web applications and integrating cutting-edge AI technologies to solve real-world problems.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row fade-in delay-100">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900">My Skills</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700">JavaScript/TypeScript</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-progress h-2 bg-blue-500 rounded-full" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700">React/Next.js</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-progress h-2 bg-blue-500 rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700">Node.js/Express</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-progress h-2 bg-blue-500 rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700">Python/Django</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-progress h-2 bg-blue-500 rounded-full" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700">AI/ML Integration</span>
+                                <span class="text-gray-600">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-progress h-2 bg-blue-500 rounded-full" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-8">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900">Education & Experience</h3>
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-500">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">Master's in Computer Science</h4>
+                                <p class="text-sm text-gray-500">Tech University • 2020-2022</p>
+                                <p class="text-gray-600 mt-1">Specialized in Artificial Intelligence and Data Science.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-500">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">Senior Developer</h4>
+                                <p class="text-sm text-gray-500">InnovateTech • 2022-Present</p>
+                                <p class="text-gray-600 mt-1">Leading the development of AI-powered web applications.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-500">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">Frontend Developer</h4>
+                                <p class="text-sm text-gray-500">WebSolutions • 2018-2020</p>
+                                <p class="text-gray-600 mt-1">Built responsive user interfaces for enterprise applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition duration-300">
+                            <i class="fas fa-download mr-2"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="pixel-font text-3xl md:text-4xl font-bold mb-4 text-gray-900">My Projects</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto fade-in">
+                    Here are some of my recent projects that showcase my skills and expertise.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://source.unsplash.com/random/600x400/?ecommerce" alt="E-commerce Platform" class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A modern online store with payment integration and inventory management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in delay-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://source.unsplash.com/random/600x400/?analytics" alt="Data Dashboard" class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Data Visualization Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Interactive dashboard for real-time data analysis with customizable charts.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">D3.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Flask</span>
+                        </div>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in delay-200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://source.unsplash.com/random/600x400/?chatbot" alt="AI Chatbot" class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI-Powered Chatbot</h3>
+                        <p class="text-gray-600 mb-4">Conversational AI assistant built with Gemini API for natural language understanding.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Gemini API</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">NLP</span>
+                        </div>
+                        <a href="#chatbot" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            Try Demo <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot Section -->
+    <section id="chatbot" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="pixel-font text-3xl md:text-4xl font-bold mb-4 text-gray-900">AI Chatbot Demo</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto fade-in">
+                    Experience the power of AI with this chatbot powered by Google's Gemini API. Ask it anything!
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden fade-in delay-100">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Chat with AI Assistant</h3>
+                    <div id="chatOutput" class="h-64 mb-4 overflow-y-auto bg-white rounded-lg p-4 space-y-4">
+                        <div class="chat-bubble bg-blue-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                            <div class="font-semibold text-sm text-blue-600 mb-1">AI Assistant</div>
+                            <p>Hello! I'm an AI powered by Google's Gemini technology. How can I help you today?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <input id="userInput" type="text" placeholder="Type your message..." class="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="sendButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">This demo showcases my AI integration skills using Gemini API.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="pixel-font text-3xl md:text-4xl font-bold mb-4 text-gray-900">Get In Touch</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto fade-in">
+                    Have a project in mind or want to chat about AI integration? Feel free to reach out!
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 fade-in delay-100">
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mr-4 mt-1">
+                                    <i class="fas fa-envelope text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Email</h4>
+                                    <p class="text-gray-600">contact@myportfolio.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Phone</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Location</h4>
+                                    <p class="text-gray-600">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-lg font-semibold mb-4">Connect with me</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition duration-300">
+                                    <i class="fab fa-medium-m"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="pixel-font text-xl font-bold text-blue-400">PORTFOLIO</span>
+                    <p class="mt-2 text-gray-400">Building the future with AI-powered solutions.</p>
+                </div>
+                
+                <div>
+                    <p class="text-gray-400">&copy; 2023 My Portfolio. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Chatbot functionality
+        document.getElementById('sendButton').addEventListener('click', sendMessage);
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message to chat
+            addMessageToChat(message, 'user');
+            
+            // Clear input
+            userInput.value = '';
+            
+            // Simulate thinking
+            addMessageToChat('Thinking...', 'ai');
+            
+            // Call the chatbot API
+            fetch('/api/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove "Thinking..." message
+                const chatOutput = document.getElementById('chatOutput');
+                if (chatOutput.lastChild.textContent === 'Thinking...') {
+                    chatOutput.removeChild(chatOutput.lastChild);
+                }
+                
+                // Add AI response
+                addMessageToChat(data.response, 'ai');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Remove "Thinking..." message
+                const chatOutput = document.getElementById('chatOutput');
+                if (chatOutput.lastChild.textContent === 'Thinking...') {
+                    chatOutput.removeChild(chatOutput.lastChild);
+                }
+                
+                // Show error message
+                addMessageToChat('Sorry, I encountered an error. Please try again later.', 'ai');
+            });
+        }
+        
+        function addMessageToChat(message, sender) {
+            const chatOutput = document.getElementById('chatOutput');
+            const messageDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                messageDiv.className = 'chat-bubble bg-gray-200 text-gray-800 p-3 rounded-l-lg rounded-br-lg max-w-xs ml-auto';
+                messageDiv.innerHTML = `<div class="font-semibold text-sm text-gray-600 mb-1">You</div><p>${message}</p>`;
+            } else {
+                messageDiv.className = 'chat-bubble bg-blue-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs';
+                messageDiv.innerHTML = `<div class="font-semibold text-sm text-blue-600 mb-1">AI Assistant</div><p>${message}</p>`;
+            }
+            
+            chatOutput.appendChild(messageDiv);
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+        }
+        
+        // This would be in a separate chatbot.js file, but included here for the single file demo
+        // In a real implementation, you would include this from an external file:
+        // <script src="/api/chatbot.js"></script>
+        
+        // Mock API implementation (in a real app, this would be a separate backend endpoint)
+        window.fetch = new Proxy(window.fetch, {
+            apply(fetch, that, args) {
+                const [url, options] = args;
+                
+                if (url === '/api/chatbot') {
+                    // Simulate API response
+                    return Promise.resolve({
+                        ok: true,
+                        json: () => Promise.resolve({
+                            response: `I'm a mock response from Gemini API. In a real implementation, this would connect to Google's Gemini service with your message: "${JSON.parse(options.body).message}"`
+                        })
+                    });
+                }
+                
+                return Reflect.apply(fetch, that, args);
+            }
+        });
+    </script>
+</body>
+</html>
