@@ -322,27 +322,29 @@
                 <h2 class="pixel-font text-3xl md:text-4xl font-bold mb-4 text-gray-900">AI Chatbot Demo</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
                 <p class="text-gray-600 max-w-3xl mx-auto fade-in">
-                    Experience the power of AI with this chatbot powered by Google's Gemini API. Ask it anything!
+                    Experience the power of AI with this interactive chatbot powered by Google's Gemini AI.
                 </p>
             </div>
-            
-            <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden fade-in delay-100">
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-2xl mx-auto fade-in delay-100">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-4 text-gray-900">Chat with AI Assistant</h3>
-                    <div id="chatOutput" class="h-64 mb-4 overflow-y-auto bg-white rounded-lg p-4 space-y-4">
-                        <div class="chat-bubble bg-blue-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                    <div id="chatOutput" class="h-96 overflow-y-auto mb-6 space-y-4">
+                        <!-- Chat messages will appear here -->
+                        <div class="chat-bubble bg-blue-100 text-gray-800 p-4 rounded-r-lg rounded-bl-lg max-w-xs">
                             <div class="font-semibold text-sm text-blue-600 mb-1">AI Assistant</div>
-                            <p>Hello! I'm an AI powered by Google's Gemini technology. How can I help you today?</p>
+                            <p>Hello! I'm an AI assistant powered by Google's Gemini. How can I help you today?</p>
                         </div>
                     </div>
                     
-                    <div class="flex">
-                        <input id="userInput" type="text" placeholder="Type your message..." class="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button id="sendButton" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition duration-300">
-                            <i class="fas fa-paper-plane"></i>
+                    <form id="chatForm" class="flex gap-2">
+                        <input type="text" id="userInput" 
+                               class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="Type your message here..." required>
+                        <button type="submit" 
+                                class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Send
                         </button>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">This demo showcases my AI integration skills using Gemini API.</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -570,28 +572,8 @@
             chatOutput.scrollTop = chatOutput.scrollHeight;
         }
         
-        // This would be in a separate chatbot.js file, but included here for the single file demo
-        // In a real implementation, you would include this from an external file:
-        // <script src="/api/chatbot.js"></script>
-        
-        // Mock API implementation (in a real app, this would be a separate backend endpoint)
-        window.fetch = new Proxy(window.fetch, {
-            apply(fetch, that, args) {
-                const [url, options] = args;
-                
-                if (url === '/api/chatbot') {
-                    // Simulate API response
-                    return Promise.resolve({
-                        ok: true,
-                        json: () => Promise.resolve({
-                            response: `I'm a mock response from Gemini API. In a real implementation, this would connect to Google's Gemini service with your message: "${JSON.parse(options.body).message}"`
-                        })
-                    });
-                }
-                
-                return Reflect.apply(fetch, that, args);
-            }
-        });
+        // Include the external chatbot.js file
     </script>
+    <script type="module" src="chatbot.js"></script>
 </body>
 </html>
